@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Movimientos : MonoBehaviour
 {
-    public float movX, movY;
-    public float velocidad = 3f;
     private Rigidbody2D fisicas;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    public GameObject SonidoAupa;
+    public float movX, movY;
+    public float velocidad = 3f;
+    public float fuerzasalto = 200;
     public bool quieroSaltar;
     public bool estarSuelo;
-    public float fuerzasalto = 200;
     public static bool crecer;
-    public GameObject SonidoAupa;
-    
+
 
     void Start()
     {
@@ -26,7 +26,6 @@ public class Movimientos : MonoBehaviour
         fuerzasalto = 7;
     }
 
-    // Update is called once per frame
     void Update()
     {
         float movX = Input.GetAxis("Horizontal");
@@ -36,7 +35,7 @@ public class Movimientos : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {   
-                quieroSaltar = true;
+            quieroSaltar = true;
             SonidoAupa.gameObject.SetActive(true);
         }
         SonidoAupa.gameObject.SetActive(!quieroSaltar);
